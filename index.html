@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Niruu🫏 🌻 ✨</title>
+  
+  <!-- Romantic Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background floating canvas for balloons, sunflowers & sparkles -->
+  <div id="bg-container" aria-hidden="true"></div>
+
+  <!-- Main interactive container -->
+  <main class="main-card">
+
+    <!-- ==========================================
+         STEP 1: First Gift & Letter
+         ========================================== -->
+    <section id="step-1" class="scene active">
+      <div class="gift-wrapper" id="gift-box-1" onclick="openFirstGift()">
+        <p class="tap-hint">Tap to open ✨</p>
+        <div class="gift-emoji floating">🎁</div>
+      </div>
+
+      <!-- Closed Letter (hidden until gift is tapped) -->
+      <div class="letter-closed hidden" id="letter-icon-1" onclick="openFirstLetter()">
+        <p class="tap-hint">Tap the letter ✉️</p>
+        <div class="envelope-emoji shake-soft">💌</div>
+      </div>
+
+      <!-- Open Paper Letter (hidden until letter is tapped) -->
+      <div class="paper-letter hidden" id="letter-paper-1">
+        <div class="letter-content" id="typewriter-1"></div>
+        <button class="next-btn hidden" id="next-btn-1" onclick="goToStep(2)">Next ➔</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STEP 2: Special Gift for Niruu
+         ========================================== -->
+    <section id="step-2" class="scene hidden">
+      <div class="gift-wrapper" id="gift-box-2" onclick="openSecondGift()">
+        <h2 class="scene-title">A small present for you ✨💝</h2>
+        <div class="gift-emoji floating">🎁</div>
+      </div>
+
+      <!-- Closed Letter -->
+      <div class="letter-closed hidden" id="letter-icon-2" onclick="openSecondLetter()">
+        <p class="tap-hint">A letter for you ✉️</p>
+        <div class="envelope-emoji shake-soft">💌</div>
+      </div>
+
+      <!-- Open Paper Letter -->
+      <div class="paper-letter hidden" id="letter-paper-2">
+        <div class="letter-content" id="typewriter-2"></div>
+        <button class="next-btn hidden" id="next-btn-2" onclick="goToStep(3)">Next ➔</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STEP 3: Final Gift Intro
+         ========================================== -->
+    <section id="step-3" class="scene hidden">
+      <div id="final-gift-text-wrap" onclick="revealIntroLetter()">
+        <h1 class="final-gift-glow">Final Gift 🎁</h1>
+        <p class="tap-hint pulse-text">Tap here ✨</p>
+      </div>
+
+      <!-- Closed Letter -->
+      <div class="letter-closed hidden" id="letter-icon-3" onclick="openIntroLetter()">
+        <p class="tap-hint">Open me ✉️</p>
+        <div class="envelope-emoji shake-soft">💌</div>
+      </div>
+
+      <!-- Open Letter Note -->
+      <div class="paper-letter hidden" id="letter-paper-3">
+        <p class="note-quote">“(Final gift main kuch nahi but kuch kahna tha muje...🥲)”</p>
+        <button class="next-btn" id="next-btn-3" onclick="goToStep(4)">Next ➔</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STEP 4: Personal Message + Voice Note
+         ========================================== -->
+    <section id="step-4" class="scene hidden">
+      <div class="paper-letter visible-static">
+        <div class="letter-content" id="typewriter-personal"></div>
+        
+        <!-- Voice Player Section -->
+        <div class="audio-container hidden" id="voice-player-box">
+          <p class="audio-label">Listen to this 🎧</p>
+          
+          <!-- ========================================================
+               AUDIO FILE PATH:
+               Change the 'src' below to your actual audio file location
+               ======================================================== -->
+          <audio id="personal-audio" src="voice.mp3" preload="auto"></audio>
+          
+          <button class="audio-play-btn" id="play-pause-btn" onclick="toggleVoiceAudio()">
+            <span id="play-icon">▶</span>
+            <span id="play-text">Play Message</span>
+          </button>
+        </div>
+
+        <button class="next-btn hidden" id="next-btn-4" onclick="goToStep(5)">Next ➔</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         STEP 5 & 6: Birthday Message & Magic Party
+         ========================================== -->
+    <section id="step-5" class="scene hidden">
+      <div class="birthday-card" id="birthday-main-card">
+        <div class="sunflower-header">🌻 ✨ 🌻</div>
+        <h1 class="bday-title">Happy Birthday Niruu ✨🌻🥳🎂✨</h1>
+        <h2 class="bday-subtitle">God Bless You 🙏🏻🤍with infinite love, success, health, wealth your dreams come true.lord krishn bless you🙌🏻✨
+
+</h2>
+        <div class="sparkle-divider">✨ 💛 ✨</div>
+
+        <button class="magic-btn" id="magic-party-btn" onclick="triggerMagicParty()">
+          Magic ✨
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
